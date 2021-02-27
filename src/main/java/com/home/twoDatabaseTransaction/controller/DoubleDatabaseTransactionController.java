@@ -4,30 +4,27 @@ import com.home.twoDatabaseTransaction.dto.CatDto;
 import com.home.twoDatabaseTransaction.dto.CatDtoWithId;
 import com.home.twoDatabaseTransaction.service.DoubleDatabaseTransactionService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @RestController
 @RequiredArgsConstructor
 public class DoubleDatabaseTransactionController {
-    DoubleDatabaseTransactionService service;
+    private final DoubleDatabaseTransactionService service;
 
     @PostMapping("/cat/add")
-    public CatDtoWithId addCat(@RequestParam CatDto cat) {
+    public Mono<CatDtoWithId> addCat(@RequestParam CatDto cat) {
         return service.addCat(cat);
     }
 
     @GetMapping("/cat/{id}")
-    public CatDtoWithId getCatById(@RequestParam String id) {
+    public Mono<CatDtoWithId> getCatById(@PathVariable String id) {
         return service.getCatById(id);
     }
 
     @GetMapping("/cats")
-    public List<CatDtoWithId> getAllCats() {
+    public Flux<CatDtoWithId> getAllCats() {
         return service.getAllCats();
     }
 }
