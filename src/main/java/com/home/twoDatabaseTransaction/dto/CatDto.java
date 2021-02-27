@@ -1,7 +1,14 @@
 package com.home.twoDatabaseTransaction.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@AllArgsConstructor
 public class CatDto {
-    String name;
-    int age;
-    Breed breed;
+    private String name;
+    private int age;
+    private Breed breed;
 }
