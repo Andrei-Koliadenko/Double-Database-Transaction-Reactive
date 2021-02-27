@@ -12,8 +12,8 @@ import org.mapstruct.factory.Mappers;
 public interface CatMapper {
     CatMapper INSTANCE = Mappers.getMapper(CatMapper.class);
 
-    @Mapping(source = "id", target = "_id")
-    CatDoc toCatDoc(CatDto cat, String id);
+    @Mapping(source = "catId", target = "_id")
+    CatDoc toCatDoc(CatDto cat, String catId);
 
     @Mapping(source = "id", target = "id")
     CatTable toCatTable(CatDto cat, String id);
