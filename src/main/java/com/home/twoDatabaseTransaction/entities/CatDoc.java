@@ -11,7 +11,6 @@ import javax.validation.constraints.NotNull;
 @Data
 @Document(collation = "cats")
 public class CatDoc {
-    @Id
     String _id;
 
     @NotBlank(message = "Name may not be empty")
