@@ -1,6 +1,7 @@
 package com.home.twoDatabaseTransaction.entities;
 
 import lombok.Data;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -9,9 +10,9 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Data
-@Document(collation = "cats")
+@Document(collection = "cats")
 public class CatDoc {
-    String _id;
+    ObjectId _id;
 
     @NotBlank(message = "Name may not be empty")
     String name;
@@ -22,4 +23,7 @@ public class CatDoc {
 
     @NotBlank(message = "Breed may not be empty")
     String breed;
+
+    @NotNull(message = "Visible may not be null")
+    Boolean visible;
 }

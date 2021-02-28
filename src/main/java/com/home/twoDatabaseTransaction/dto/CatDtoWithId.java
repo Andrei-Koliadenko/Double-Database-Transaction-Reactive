@@ -10,8 +10,8 @@ import lombok.Setter;
 public class CatDtoWithId extends CatDto{
     private String id;
 
-    public CatDtoWithId(String name, int age, Breed breed, String id) {
-        super(name, age, breed);
+    public CatDtoWithId(String name, int age, Breed breed, String id, Boolean visible) {
+        super(name, age, breed, visible);
         this.id = id;
     }
 }
